@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { LockIcon } from 'lucide-react';
 
 const Login = ({ onLogin }) => {
     const [username, setUsername] = useState('');
@@ -30,7 +31,7 @@ const Login = ({ onLogin }) => {
             justifyContent: 'center', 
             alignItems: 'center', 
             minHeight: '100vh', 
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            background: '#f9fafb',
             fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
         },
         card: { 
@@ -38,22 +39,30 @@ const Login = ({ onLogin }) => {
             maxWidth: '400px', 
             padding: '40px', 
             background: 'white', 
-            borderRadius: '16px', 
-            boxShadow: '0 10px 25px rgba(0,0,0,0.2)' 
+            borderRadius: '24px', 
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+            border: '1px solid #f1f5f9'
         },
-        title: { textAlign: 'center', marginBottom: '30px', color: '#4a5568', fontSize: '24px', fontWeight: '700' },
-        error: { background: '#fff5f5', color: '#c53030', padding: '12px', borderRadius: '8px', marginBottom: '20px', fontSize: '14px', border: '1px solid #feb2b2' },
-        label: { display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#4a5568' },
-        input: { width: '100%', padding: '12px', border: '2px solid #e2e8f0', borderRadius: '8px', marginBottom: '20px', fontSize: '16px', outline: 'none', transition: 'border-color 0.2s', boxSizing: 'border-box' },
-        button: { width: '100%', padding: '14px', background: '#667eea', color: 'white', border: 'none', borderRadius: '8px', fontSize: '16px', fontWeight: '600', cursor: 'pointer', transition: 'background 0.2s' },
-        linkContainer: { marginTop: '20px', textAlign: 'center', fontSize: '14px', color: '#718096' },
-        link: { color: '#667eea', textDecoration: 'none', fontWeight: '600' }
+        title: { textAlign: 'center', marginBottom: '10px', color: '#000', fontSize: '28px', fontWeight: '800' },
+        subtitle: { textAlign: 'center', marginBottom: '30px', color: '#64748b', fontSize: '14px' },
+        error: { background: '#fef2f2', color: '#dc2626', padding: '12px', borderRadius: '12px', marginBottom: '20px', fontSize: '14px', border: '1px solid #fee2e2' },
+        label: { display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '700', color: '#000' },
+        input: { width: '100%', padding: '14px', border: '1px solid #e2e8f0', borderRadius: '12px', marginBottom: '20px', fontSize: '16px', outline: 'none', transition: 'all 0.2s', boxSizing: 'border-box', background: '#f8fafc' },
+        button: { width: '100%', padding: '14px', background: '#000', color: 'white', border: 'none', borderRadius: '12px', fontSize: '16px', fontWeight: '700', cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' },
+        linkContainer: { marginTop: '24px', textAlign: 'center', fontSize: '14px', color: '#64748b' },
+        link: { color: '#000', textDecoration: 'none', fontWeight: '700', marginLeft: '5px' }
     };
 
     return (
         <div style={styles.container}>
             <div style={styles.card}>
-                <h2 style={styles.title}>Welcome Back</h2>
+                <div style={{textAlign: 'center', marginBottom: '20px'}}>
+                    <div style={{display: 'inline-flex', padding: '12px', background: '#000', borderRadius: '16px', color: '#fff', marginBottom: '15px'}}>
+                        <LockIcon size={32} />
+                    </div>
+                </div>
+                <h2 style={styles.title}>SecurePass</h2>
+                <p style={styles.subtitle}>Enter your master credentials</p>
                 {error && <div style={styles.error}>{error}</div>}
                 <form onSubmit={handleSubmit}>
                     <div>
@@ -63,7 +72,7 @@ const Login = ({ onLogin }) => {
                             value={username} 
                             onChange={(e) => setUsername(e.target.value)} 
                             style={styles.input} 
-                            placeholder="Enter your username"
+                            placeholder="Username"
                             required 
                         />
                     </div>
@@ -74,14 +83,14 @@ const Login = ({ onLogin }) => {
                             value={password} 
                             onChange={(e) => setPassword(e.target.value)} 
                             style={styles.input} 
-                            placeholder="Enter your password"
+                            placeholder="Master Password"
                             required 
                         />
                     </div>
-                    <button type="submit" style={styles.button}>Login</button>
+                    <button type="submit" style={styles.button}>Unlock Vault</button>
                 </form>
                 <div style={styles.linkContainer}>
-                    Don't have an account? <Link to="/register" style={styles.link}>Sign Up</Link>
+                    Don't have an account? <Link to="/register" style={styles.link}>Create Vault</Link>
                 </div>
             </div>
         </div>

@@ -41,7 +41,7 @@ const Register = () => {
             justifyContent: 'center', 
             alignItems: 'center', 
             minHeight: '100vh', 
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            background: '#f9fafb',
             fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
         },
         card: { 
@@ -49,17 +49,19 @@ const Register = () => {
             maxWidth: '400px', 
             padding: '40px', 
             background: 'white', 
-            borderRadius: '16px', 
-            boxShadow: '0 10px 25px rgba(0,0,0,0.2)' 
+            borderRadius: '24px', 
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+            border: '1px solid #f1f5f9'
         },
-        title: { textAlign: 'center', marginBottom: '30px', color: '#4a5568', fontSize: '24px', fontWeight: '700' },
-        error: { background: '#fff5f5', color: '#c53030', padding: '12px', borderRadius: '8px', marginBottom: '20px', fontSize: '14px', border: '1px solid #feb2b2' },
-        label: { display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '600', color: '#4a5568' },
-        input: { width: '100%', padding: '12px', border: '2px solid #e2e8f0', borderRadius: '8px', marginBottom: '15px', fontSize: '16px', outline: 'none', transition: 'border-color 0.2s', boxSizing: 'border-box' },
-        button: { width: '100%', padding: '14px', background: '#667eea', color: 'white', border: 'none', borderRadius: '8px', fontSize: '16px', fontWeight: '600', cursor: 'pointer', transition: 'background 0.2s' },
-        disabledMsg: { textAlign: 'center', padding: '20px', color: '#e53e3e', fontWeight: 'bold' },
-        linkContainer: { marginTop: '20px', textAlign: 'center', fontSize: '14px', color: '#718096' },
-        link: { color: '#667eea', textDecoration: 'none', fontWeight: '600' }
+        title: { textAlign: 'center', marginBottom: '10px', color: '#000', fontSize: '28px', fontWeight: '800' },
+        subtitle: { textAlign: 'center', marginBottom: '30px', color: '#64748b', fontSize: '14px' },
+        error: { background: '#fef2f2', color: '#dc2626', padding: '12px', borderRadius: '12px', marginBottom: '20px', fontSize: '14px', border: '1px solid #fee2e2' },
+        label: { display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '700', color: '#000' },
+        input: { width: '100%', padding: '14px', border: '1px solid #e2e8f0', borderRadius: '12px', marginBottom: '15px', fontSize: '16px', outline: 'none', transition: 'all 0.2s', boxSizing: 'border-box', background: '#f8fafc' },
+        button: { width: '100%', padding: '14px', background: '#000', color: 'white', border: 'none', borderRadius: '12px', fontSize: '16px', fontWeight: '700', cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' },
+        disabledMsg: { textAlign: 'center', padding: '20px', color: '#dc2626', fontWeight: 'bold' },
+        linkContainer: { marginTop: '24px', textAlign: 'center', fontSize: '14px', color: '#64748b' },
+        link: { color: '#000', textDecoration: 'none', fontWeight: '700', marginLeft: '5px' }
     };
 
     if (disabled) return (
@@ -77,7 +79,8 @@ const Register = () => {
     return (
         <div style={styles.container}>
             <div style={styles.card}>
-                <h2 style={styles.title}>Create Account</h2>
+                <h2 style={styles.title}>Create Vault</h2>
+                <p style={styles.subtitle}>Secure your passwords today</p>
                 {error && <div style={styles.error}>{error}</div>}
                 <form onSubmit={handleSubmit}>
                     <div>
@@ -98,7 +101,7 @@ const Register = () => {
                             value={password} 
                             onChange={(e) => setPassword(e.target.value)} 
                             style={styles.input} 
-                            placeholder="Create a password"
+                            placeholder="Create master password"
                             required 
                         />
                     </div>
@@ -109,14 +112,14 @@ const Register = () => {
                             value={confirmPassword} 
                             onChange={(e) => setConfirmPassword(e.target.value)} 
                             style={styles.input} 
-                            placeholder="Repeat your password"
+                            placeholder="Confirm master password"
                             required 
                         />
                     </div>
-                    <button type="submit" style={styles.button}>Register</button>
+                    <button type="submit" style={styles.button}>Create Account</button>
                 </form>
                 <div style={styles.linkContainer}>
-                    Already have an account? <Link to="/login" style={styles.link}>Login</Link>
+                    Already have a vault? <Link to="/login" style={styles.link}>Login</Link>
                 </div>
             </div>
         </div>

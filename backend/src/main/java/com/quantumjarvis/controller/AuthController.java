@@ -1,7 +1,9 @@
 package com.quantumjarvis.controller;
 
 import com.quantumjarvis.dto.LoginRequest;
+import com.quantumjarvis.model.LoginHistory;
 import com.quantumjarvis.model.User;
+import com.quantumjarvis.repository.LoginHistoryRepository;
 import com.quantumjarvis.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -13,12 +15,16 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthController {
     private final UserService userService;
     private final AuthenticationManager authenticationManager;
+    private final LoginHistoryRepository loginHistoryRepository;
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody LoginRequest registrationRequest) {
@@ -46,6 +52,21 @@ public class AuthController {
             
             System.out.println("[DEBUG_LOG] Authentication successful and context saved for: " + loginRequest.getUsername());
             System.out.println("[DEBUG_LOG] Session ID: " + session.getId());
+
+            // Record login history
+            User user = userService.findByUsername(loginRequest.getUsername()).orElse(null);
+            if (user != null) {
+                String ip = request.getRemoteAddr();
+                // Simple IP to location mock or just use IP
+                String location = "Unknown (Mock)"; 
+                LoginHistory history = LoginHistory.builder()
+                        .user(user)
+                        .ipAddress(ip)
+                        .loginTime(LocalDateTime.now())
+                        .location(location)
+                        .build();
+                loginHistoryRepository.save(history);
+            }
 
             return ResponseEntity.ok("Logged in successfully");
         } catch (Exception e) {
@@ -93,5 +114,12 @@ public class AuthController {
         }
         userService.setRegistrationEnabled(enabled);
         return ResponseEntity.ok("Registration " + (enabled ? "enabled" : "disabled"));
+    }
+
+    @GetMapping("/login-history")
+    public ResponseEntity<List<LoginHistory>> getLoginHistory(Authentication authentication) {
+        User user = userService.findByUsername(authentication.getName())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        return ResponseEntity.ok(loginHistoryRepository.findByUserOrderByLoginTimeDesc(user));
     }
 }
