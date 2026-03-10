@@ -31,33 +31,33 @@ const Login = ({ onLogin }) => {
             justifyContent: 'center', 
             alignItems: 'center', 
             minHeight: '100vh', 
-            background: '#f9fafb',
+            background: '#0f1b3d',
             fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
         },
         card: { 
             width: '100%',
             maxWidth: '400px', 
             padding: '40px', 
-            background: 'white', 
-            borderRadius: '24px', 
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-            border: '1px solid #f1f5f9'
+            background: '#1f2b56',
+            borderRadius: '24px',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+            border: '1px solid #273461'
         },
-        title: { textAlign: 'center', marginBottom: '10px', color: '#000', fontSize: '28px', fontWeight: '800' },
-        subtitle: { textAlign: 'center', marginBottom: '30px', color: '#64748b', fontSize: '14px' },
-        error: { background: '#fef2f2', color: '#dc2626', padding: '12px', borderRadius: '12px', marginBottom: '20px', fontSize: '14px', border: '1px solid #fee2e2' },
-        label: { display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '700', color: '#000' },
-        input: { width: '100%', padding: '14px', border: '1px solid #e2e8f0', borderRadius: '12px', marginBottom: '20px', fontSize: '16px', outline: 'none', transition: 'all 0.2s', boxSizing: 'border-box', background: '#f8fafc' },
-        button: { width: '100%', padding: '14px', background: '#000', color: 'white', border: 'none', borderRadius: '12px', fontSize: '16px', fontWeight: '700', cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' },
-        linkContainer: { marginTop: '24px', textAlign: 'center', fontSize: '14px', color: '#64748b' },
-        link: { color: '#000', textDecoration: 'none', fontWeight: '700', marginLeft: '5px' }
+        title: { textAlign: 'center', marginBottom: '10px', color: '#f8fafc', fontSize: '28px', fontWeight: '800' },
+        subtitle: { textAlign: 'center', marginBottom: '30px', color: '#94a3b8', fontSize: '14px' },
+        error: { background: '#7f1d1d', color: '#fca5a5', padding: '12px', borderRadius: '12px', marginBottom: '20px', fontSize: '14px', border: '1px solid #991b1b' },
+        label: { display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '700', color: '#e2e8f0' },
+        input: { width: '100%', padding: '14px', border: '1px solid #364574', borderRadius: '12px', marginBottom: '20px', fontSize: '16px', outline: 'none', transition: 'all 0.2s', boxSizing: 'border-box', background: '#0f1b3d', color: '#e2e8f0' },
+        button: { width: '100%', padding: '14px', background: '#f97316', color: 'white', border: 'none', borderRadius: '12px', fontSize: '16px', fontWeight: '700', cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 10px 15px -3px rgba(249, 115, 22, 0.3)' },
+        linkContainer: { marginTop: '24px', textAlign: 'center', fontSize: '14px', color: '#94a3b8' },
+        link: { color: '#f97316', textDecoration: 'none', fontWeight: '700', marginLeft: '5px' }
     };
 
     return (
         <div style={styles.container}>
             <div style={styles.card}>
                 <div style={{textAlign: 'center', marginBottom: '20px'}}>
-                    <div style={{display: 'inline-flex', padding: '12px', background: '#000', borderRadius: '16px', color: '#fff', marginBottom: '15px'}}>
+                    <div style={{display: 'inline-flex', padding: '12px', background: '#f97316', borderRadius: '16px', color: '#fff', marginBottom: '15px'}}>
                         <LockIcon size={32} />
                     </div>
                 </div>

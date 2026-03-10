@@ -191,28 +191,28 @@ const PasswordManager = ({ user, onLogout }) => {
         setEditEntry(p);
     };
 
-    // Inline Styles
+    // Inline Styles — Navy theme
     const styles = {
-        container: { padding: '40px', width: '100%', maxWidth: '100%', margin: '0', fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif', color: '#333', boxSizing: 'border-box', overflowX: 'hidden' },
-        section: { background: '#fff', borderRadius: '12px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)', padding: '24px', marginBottom: '30px', border: '1px solid #f1f5f9', width: '100%', boxSizing: 'border-box' },
-        sectionTitle: { marginTop: 0, marginBottom: '20px', color: '#000', fontSize: '20px', borderLeft: '4px solid #000', paddingLeft: '12px', fontWeight: 'bold' },
+        container: { padding: '40px', width: '100%', maxWidth: '100%', margin: '0', fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif', color: '#e2e8f0', boxSizing: 'border-box', overflowX: 'hidden' },
+        section: { background: '#1f2b56', borderRadius: '12px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2)', padding: '24px', marginBottom: '30px', border: '1px solid #273461', width: '100%', boxSizing: 'border-box' },
+        sectionTitle: { marginTop: 0, marginBottom: '20px', color: '#f8fafc', fontSize: '20px', borderLeft: '4px solid #f97316', paddingLeft: '12px', fontWeight: 'bold' },
         form: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px' },
-        input: { padding: '12px', border: '1px solid #e2e8f0', borderRadius: '8px', fontSize: '14px', outline: 'none', transition: 'all 0.2s', background: '#f8fafc' },
-        button: { padding: '12px 24px', background: '#000', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', transition: 'all 0.2s' },
+        input: { padding: '12px', border: '1px solid #364574', borderRadius: '8px', fontSize: '14px', outline: 'none', transition: 'all 0.2s', background: '#0f1b3d', color: '#e2e8f0' },
+        button: { padding: '12px 24px', background: '#f97316', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600', transition: 'all 0.2s' },
         table: { width: '100%', borderCollapse: 'separate', borderSpacing: 0, marginTop: '10px' },
-        th: { background: '#f8fafc', padding: '12px 15px', textAlign: 'left', fontWeight: '700', color: '#000', borderBottom: '2px solid #000', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' },
-        td: { padding: '12px 15px', borderBottom: '1px solid #f1f5f9', fontSize: '14px' },
-        copyBtn: { background: '#f1f5f9', border: 'none', borderRadius: '6px', padding: '6px 10px', cursor: 'pointer', fontSize: '14px', color: '#000', marginLeft: '5px', transition: 'all 0.2s' },
+        th: { background: '#273461', padding: '12px 15px', textAlign: 'left', fontWeight: '700', color: '#f8fafc', borderBottom: '2px solid #f97316', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' },
+        td: { padding: '12px 15px', borderBottom: '1px solid #273461', fontSize: '14px', color: '#cbd5e1' },
+        copyBtn: { background: '#273461', border: 'none', borderRadius: '6px', padding: '6px 10px', cursor: 'pointer', fontSize: '14px', color: '#e2e8f0', marginLeft: '5px', transition: 'all 0.2s' },
         actionBtn: { padding: '6px 12px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '13px', fontWeight: '600', marginRight: '5px', transition: 'all 0.2s' },
-        saveBtn: { background: '#000', color: 'white' },
-        cancelBtn: { background: '#f1f5f9', color: '#64748b' },
-        deleteBtn: { background: '#fee2e2', color: '#ef4444' },
-        editBtn: { background: '#f8fafc', color: '#000', border: '1px solid #e2e8f0' },
-        badge: { padding: '2px 8px', borderRadius: '12px', fontSize: '11px', fontWeight: 'bold', background: '#000', color: '#fff' },
-        filterInput: { width: '100%', padding: '8px 10px', marginTop: '8px', border: '1px solid #e2e8f0', borderRadius: '6px', fontSize: '11px', fontWeight: 'normal', boxSizing: 'border-box', background: '#fff' },
+        saveBtn: { background: '#f97316', color: 'white' },
+        cancelBtn: { background: '#364574', color: '#94a3b8' },
+        deleteBtn: { background: '#7f1d1d', color: '#fca5a5' },
+        editBtn: { background: '#273461', color: '#e2e8f0', border: '1px solid #364574' },
+        badge: { padding: '2px 8px', borderRadius: '12px', fontSize: '11px', fontWeight: 'bold', background: '#f97316', color: '#fff' },
+        filterInput: { width: '100%', padding: '8px 10px', marginTop: '8px', border: '1px solid #364574', borderRadius: '6px', fontSize: '11px', fontWeight: 'normal', boxSizing: 'border-box', background: '#0f1b3d', color: '#e2e8f0' },
         pagination: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '30px', gap: '5px' },
-        pageBtn: { padding: '8px 14px', border: '1px solid #e2e8f0', background: 'white', borderRadius: '6px', cursor: 'pointer', fontSize: '13px', fontWeight: '500', transition: 'all 0.2s' },
-        activePageBtn: { background: '#000', color: 'white', borderColor: '#000' }
+        pageBtn: { padding: '8px 14px', border: '1px solid #364574', background: '#1f2b56', borderRadius: '6px', cursor: 'pointer', fontSize: '13px', fontWeight: '500', transition: 'all 0.2s', color: '#cbd5e1' },
+        activePageBtn: { background: '#f97316', color: 'white', borderColor: '#f97316' }
     };
 
     return (
@@ -238,7 +238,7 @@ const PasswordManager = ({ user, onLogout }) => {
                         <button style={{...styles.actionBtn, ...styles.editBtn, margin: 0}} onClick={handleSelectAll}>Select All</button>
                         <button style={{...styles.actionBtn, ...styles.cancelBtn, margin: 0}} onClick={handleUnselectAll}>Unselect All</button>
                         <input style={{...styles.input, padding: '8px'}} placeholder="New bulk password" value={bulkPassword} onChange={e => setBulkPassword(e.target.value)} />
-                        <button style={{...styles.button, padding: '8px 16px', background: selectedIds.length > 0 ? '#10b981' : '#ccc'}} 
+                        <button style={{...styles.button, padding: '8px 16px', background: selectedIds.length > 0 ? '#10b981' : '#364574'}}
                                 onClick={handleBulkUpdate} disabled={selectedIds.length === 0}>
                             Update Selected ({selectedIds.length})
                         </button>
@@ -305,7 +305,7 @@ const PasswordManager = ({ user, onLogout }) => {
                                     <td style={styles.td}>
                                         {editingId === p.id ? 
                                             <input style={styles.input} value={editEntry.url} onChange={e => setEditEntry({...editEntry, url: e.target.value})} /> : 
-                                            <a href={p.url.startsWith('http') ? p.url : `https://${p.url}`} target="_blank" rel="noreferrer" style={{color: '#000', textDecoration: 'underline'}}>{p.url}</a>
+                                            <a href={p.url.startsWith('http') ? p.url : `https://${p.url}`} target="_blank" rel="noreferrer" style={{color: '#f97316', textDecoration: 'underline'}}>{p.url}</a>
                                         }
                                     </td>
                                     <td style={styles.td}>
@@ -363,7 +363,7 @@ const PasswordManager = ({ user, onLogout }) => {
                                 </tr>
                             )) : (
                                 <tr>
-                                    <td colSpan="8" style={{...styles.td, textAlign: 'center', padding: '30px', color: '#64748b'}}>
+                                    <td colSpan="8" style={{...styles.td, textAlign: 'center', padding: '30px', color: '#94a3b8'}}>
                                         No entries found matching your search.
                                     </td>
                                 </tr>
@@ -375,8 +375,8 @@ const PasswordManager = ({ user, onLogout }) => {
                 {filteredPasswords.length > 0 && (
                     <div style={{...styles.pagination, flexWrap: 'wrap'}}>
                         <div style={{ marginRight: 'auto', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                            <span style={{ fontSize: '13px', color: '#64748b' }}>Show</span>
-                            <select 
+                            <span style={{ fontSize: '13px', color: '#94a3b8' }}>Show</span>
+                            <select
                                 style={{...styles.input, padding: '4px 8px', width: 'auto'}} 
                                 value={customItemsPerPage !== '' ? 'custom' : itemsPerPage} 
                                 onChange={handleItemsPerPageChange}
@@ -397,7 +397,7 @@ const PasswordManager = ({ user, onLogout }) => {
                                     onChange={handleCustomItemsPerPageChange}
                                 />
                             )}
-                            <span style={{ fontSize: '13px', color: '#64748b' }}>entries per page</span>
+                            <span style={{ fontSize: '13px', color: '#94a3b8' }}>entries per page</span>
                         </div>
                         
                         <div style={{ display: 'flex', gap: '5px' }}>
@@ -455,32 +455,32 @@ const PasswordManager = ({ user, onLogout }) => {
             </section>
 
             <section style={styles.section}>
-                <button style={{...styles.button, background: '#4b5563'}} onClick={() => setShowAdmin(!showAdmin)}>
+                <button style={{...styles.button, background: '#364574'}} onClick={() => setShowAdmin(!showAdmin)}>
                     {showAdmin ? 'Hide Advanced Settings' : '⚙️ Account & Admin Settings'}
                 </button>
                 {showAdmin && (
-                    <div style={{ marginTop: '24px', padding: '20px', background: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                    <div style={{ marginTop: '24px', padding: '20px', background: '#0f1b3d', borderRadius: '8px', border: '1px solid #273461' }}>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
                             <div>
-                                <h4 style={{marginTop: 0, color: '#1f2937'}}>Change Master Password</h4>
-                                <p style={{fontSize: '12px', color: '#666', marginBottom: '15px'}}>Warning: This will re-encrypt all vault entries with your new password.</p>
+                                <h4 style={{marginTop: 0, color: '#f8fafc'}}>Change Master Password</h4>
+                                <p style={{fontSize: '12px', color: '#94a3b8', marginBottom: '15px'}}>Warning: This will re-encrypt all vault entries with your new password.</p>
                                     <form onSubmit={handleChangeMasterPassword} style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
                                         <input style={styles.input} type="password" placeholder="Old Password" value={changePass.oldPassword} onChange={e => setChangePass({...changePass, oldPassword: e.target.value})} required />
                                         <input style={styles.input} type="password" placeholder="New Password" value={changePass.newPassword} onChange={e => setChangePass({...changePass, newPassword: e.target.value})} required />
-                                        <button style={{...styles.button, background: '#000'}} type="submit">Update & Re-encrypt All</button>
+                                        <button style={{...styles.button, background: '#f97316'}} type="submit">Update & Re-encrypt All</button>
                                     </form>
                             </div>
 
                             {user.isAdmin && (
                                 <div>
-                                    <h4 style={{marginTop: 0, color: '#1f2937'}}>Admin Controls</h4>
-                                    <div style={{ background: '#fff', padding: '15px', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                                    <h4 style={{marginTop: 0, color: '#f8fafc'}}>Admin Controls</h4>
+                                    <div style={{ background: '#1f2b56', padding: '15px', borderRadius: '8px', border: '1px solid #273461' }}>
                                         <label style={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
                                             <input type="checkbox" style={{width: '18px', height: '18px', marginRight: '10px'}} 
                                                    checked={!registrationDisabled} onChange={handleToggleRegistration} />
-                                            <span style={{fontSize: '14px', fontWeight: '500'}}>Enable Public Registration</span>
+                                            <span style={{fontSize: '14px', fontWeight: '500', color: '#e2e8f0'}}>Enable Public Registration</span>
                                         </label>
-                                        <p style={{fontSize: '12px', color: '#64748b', marginTop: '10px', marginLeft: '28px'}}>
+                                        <p style={{fontSize: '12px', color: '#94a3b8', marginTop: '10px', marginLeft: '28px'}}>
                                             When disabled, new users cannot create accounts.
                                         </p>
                                     </div>
